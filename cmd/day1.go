@@ -26,9 +26,21 @@ var day1Cmd = &cobra.Command{
 		if err != nil {
 			return err
 		}
+
 		report := expense.NewReport(expenses)
-		val := report.FindEntries(2020)
-		fmt.Println("Product is: ", val)
+
+		val, err := report.Find2Entries(2020)
+		if err != nil {
+			return err
+		}
+		fmt.Println("Product of 2 expenses is: ", val)
+
+		val, err = report.Find3Entries(2020)
+		if err != nil {
+			return err
+		}
+		fmt.Println("Product of 3 expenses is: ", val)
+
 		return nil
 	},
 }

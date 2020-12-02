@@ -25,6 +25,7 @@ func Execute() {
 }
 
 func init() {
+	rootCmd.DisableSuggestions = true
 	rootCmd.PersistentFlags().StringVarP(&input, "input", "i", "", "Input file (required)")
 	rootCmd.MarkPersistentFlagRequired("input")
 }

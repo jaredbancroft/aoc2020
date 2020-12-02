@@ -29,7 +29,7 @@ func (r *Report) Find2Entries(target int) (int, error) {
 }
 
 //Find3Entries will find the 3 entries which sum to the target
-//and return their produce
+//and return their product
 func (r *Report) Find3Entries(target int) (int, error) {
 
 	for _, expense := range r.expenses {

@@ -2,6 +2,8 @@ package cmd
 
 import (
 	"fmt"
+	"regexp"
+	"strconv"
 
 	"github.com/jaredbancroft/aoc2020/pkg/helpers"
 	"github.com/jaredbancroft/aoc2020/pkg/password"
@@ -72,8 +74,16 @@ var day2Cmd = &cobra.Command{
 
 		countNumber := 0
 		countPosition := 0
+
 		for _, input := range inputs {
-			p := password.NewValidator(input)
+			re := regexp.MustCompile(`([0-9]*)-([0-9]*).([a-z]):.([a-z]*)`)
+			cg := re.FindStringSubmatch(input)
+			min, _ := strconv.Atoi(cg[1])
+			max, _ := strconv.Atoi(cg[2])
+			char := cg[3]
+			pass := cg[4]
+
+			p := password.NewValidator(min, max, char, pass)
 			if p.ValidateNumber() {
 				countNumber++
 			}

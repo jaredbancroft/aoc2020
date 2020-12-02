@@ -1,8 +1,6 @@
 package password
 
 import (
-	"regexp"
-	"strconv"
 	"strings"
 )
 
@@ -15,13 +13,7 @@ type Validator struct {
 }
 
 //NewValidator creates a new password validator
-func NewValidator(p string) *Validator {
-	re := regexp.MustCompile(`([0-9]*)-([0-9]*).([a-z]):.([a-z]*)`)
-	cg := re.FindStringSubmatch(p)
-	min, _ := strconv.Atoi(cg[1])
-	max, _ := strconv.Atoi(cg[2])
-	char := cg[3]
-	password := cg[4]
+func NewValidator(min int, max int, char string, password string) *Validator {
 
 	return &Validator{min: min, max: max, char: char, password: password}
 }

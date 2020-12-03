@@ -13,6 +13,8 @@ var day1Cmd = &cobra.Command{
 	Use:   "day1",
 	Short: "Advent of Code 2020 - Day 1",
 	Long: `
+	Advent of Code 2020
+	
 	--- Day 1: Report Repair ---
 	
 	After saving Christmas five years in a row, you've decided to take a vacation at a nice resort 

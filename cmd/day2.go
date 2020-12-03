@@ -15,6 +15,7 @@ var day2Cmd = &cobra.Command{
 	Use:   "day2",
 	Short: "Advent of Code 2020 - Day 2",
 	Long: `
+	Advent of Code 2020
 	
 	--- Day 2: Password Philosophy ---
 

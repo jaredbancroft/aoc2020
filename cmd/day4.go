@@ -157,34 +157,35 @@ var day4Cmd = &cobra.Command{
 
 		re := regexp.MustCompile(`\w{3}:[^\s]+`)
 		fields := make(map[string]string)
+		passports := []*passport.Passport{}
 		valid := 0
 		valid2 := 0
 
 		for _, i := range inputs {
-			if i == "" {
-				p := passport.NewPassport(fields)
-				if p.Validate() {
-					valid++
-				}
-				if p.ValidateMore() {
-					valid2++
-				}
-				fields = make(map[string]string)
-				continue
-			}
+
 			matches := re.FindAllString(i, -1)
 			for _, match := range matches {
 				m := strings.Split(match, ":")
 				fields[m[0]] = m[1]
 			}
+			if i == "" {
+				pp := passport.NewPassport(fields)
+				passports = append(passports, pp)
+				fields = make(map[string]string)
+			}
 		}
-		p := passport.NewPassport(fields)
-		if p.Validate() {
-			valid++
+		pp := passport.NewPassport(fields)
+		passports = append(passports, pp)
+
+		for _, p := range passports {
+			if p.Validate() {
+				valid++
+			}
+			if p.ValidateMore() {
+				valid2++
+			}
 		}
-		if p.ValidateMore() {
-			valid2++
-		}
+
 		fmt.Println("Valid Passports: ", valid)
 		fmt.Println("Valid Passports: ", valid2)
 		return nil

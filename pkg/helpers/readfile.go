@@ -22,8 +22,7 @@ func ReadIntFile(fname string) ([]int, error) {
 		if len(l) == 0 {
 			continue
 		}
-		// Atoi better suits the job when we know exactly what we're dealing
-		// with. Scanf is the more general option.
+
 		n, err := strconv.Atoi(l)
 		if err != nil {
 			return nil, err
@@ -45,4 +44,30 @@ func ReadStringFile(fname string) ([]string, error) {
 	lines := strings.Split(string(b), "\n")
 
 	return lines, nil
+}
+
+//ReadGroupStringFile will read a file of strings separated by a newline
+//and return a slice of strings
+func ReadGroupStringFile(fname string) (map[int][]string, error) {
+	g := make(map[int][]string)
+	b, err := ioutil.ReadFile(fname)
+	if err != nil {
+		return nil, err
+	}
+
+	lines := strings.Split(string(b), "\n")
+	groupNum := 0
+	groupVals := []string{}
+	for _, line := range lines {
+		if line == "" {
+			g[groupNum] = groupVals
+			groupVals = []string{}
+			groupNum++
+			continue
+		}
+		groupVals = append(groupVals, line)
+	}
+	g[groupNum] = groupVals
+
+	return g, nil
 }

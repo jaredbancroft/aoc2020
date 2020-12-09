@@ -14,9 +14,9 @@ import (
 // day8Cmd represents the day8 command
 var day8Cmd = &cobra.Command{
 	Use:   "day8",
-	Short: "Advent of Code - 2020",
+	Short: "Advent of Code 2020 - Day 8: Handheld Halting",
 	Long: `
-	Advent of Code - 2020
+	Advent of Code 2020
 
 	--- Day 8: Handheld Halting ---
 
@@ -121,7 +121,7 @@ var day8Cmd = &cobra.Command{
 	acc +1  | 4
 	nop -4  | 5
 	acc +6  | 6
-	
+
 	After the last instruction (acc +6), the program terminates by attempting to run the instruction below the 
 	last instruction in the file. With this change, after the program terminates, the accumulator contains the 
 	value 8 (acc +1, acc +1, acc +6).

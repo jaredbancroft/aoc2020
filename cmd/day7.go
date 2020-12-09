@@ -13,8 +13,12 @@ import (
 // day7Cmd represents the day7 command
 var day7Cmd = &cobra.Command{
 	Use:   "day7",
-	Short: "Advent of Code - 2020",
-	Long: `--- Day 7: Handy Haversacks ---
+	Short: "Advent of Code 2020 - Day 7: Handy Haversacks",
+	Long: `
+	Advent of Code 2020
+	
+	--- Day 7: Handy Haversacks ---
+
 	You land at the regional airport in time for your next flight. In fact, it looks like 
 	you'll even have time to grab some food: all flights are currently delayed due to 
 	issues in luggage processing.

@@ -12,9 +12,9 @@ import (
 // day5Cmd represents the day5 command
 var day5Cmd = &cobra.Command{
 	Use:   "day5",
-	Short: "Advent of Code - 2020",
+	Short: "Advent of Code 2020 - Day 5: Binary Boarding",
 	Long: `
-	Advent of Code - 2020
+	Advent of Code 2020
 
 	--- Day 5: Binary Boarding ---
 

@@ -2,7 +2,6 @@ package navigation
 
 import (
 	"errors"
-	"fmt"
 	"math"
 )
 
@@ -162,28 +161,27 @@ func (b *Boat2) Move(action string, value int) {
 	switch action {
 	case "N":
 		b.Waypoint.Position.Y = b.Waypoint.Position.Y + value
-		fmt.Println(b.Waypoint)
+
 	case "S":
 		b.Waypoint.Position.Y = b.Waypoint.Position.Y - value
-		fmt.Println(b.Waypoint)
+
 	case "E":
 		b.Waypoint.Position.X = b.Waypoint.Position.X + value
-		fmt.Println(b.Waypoint)
+
 	case "W":
 		b.Waypoint.Position.X = b.Waypoint.Position.X - value
-		fmt.Println(b.Waypoint)
+
 	case "R":
 		b.turn(action, value)
-		fmt.Println(b.Waypoint)
+
 	case "L":
 		b.turn(action, value)
-		fmt.Println(b.Waypoint)
+
 	case "F":
 		shipX := value * b.Waypoint.Position.X
 		shipY := value * b.Waypoint.Position.Y
 		b.Position.X = b.Position.X + shipX
 		b.Position.Y = b.Position.Y + shipY
-		fmt.Println(b.Position)
 	}
 }
 
